@@ -1,0 +1,105 @@
+﻿@using Microsoft.AspNetCore.Http;
+@using Microsoft.Extensions.Options
+@inject IOptions<LLWP_Core.Utility.StripeSettings> Stripe
+@{
+    ViewData["Title"] = "BookingPayment";
+    Layout = "~/Views/Shared/_Layout_actshoppingcart.cshtml";
+}
+
+<form method="post">
+    <div class="container">
+        <div class="checkOrder_detailDiv mt5">
+            @if (Context.Session.GetString("SK_Payment") == null)
+            {
+                <h3 class="mt5 mb2 fz2">活動明細</h3>
+                <div style="border:#F8B73B 2px solid; background-color: #ffffff; ">
+                    <div id="ordershoppingcart" class="row p-3 rounded fz125 lh25 justify-content-center" style="display: flex;">
+                    </div>
+                    <ul>
+                        <li class="mb2 ml5 fz15" style="list-style-type:disc;">總金額$<span id="pricetotal">0</span></li>
+                    </ul>
+                </div>
+            }
+            <div>
+            </div>
+        </div>
+        @{var stripetotalMoney = Convert.ToInt32(Context.Session.GetString("SK_ACTIVITYMONEY")) * 100 / 30; }
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="@Stripe.Value.PublishableKey"
+                data-amount="0"
+                data-name="榕沛社區訂房功能"
+                data-label="Stripe 信用卡支付"
+                data-description="活動費用支付"
+                data-locale="auto"
+                data-allow-remember-me="false"
+                data-currency="USD"
+                data-image="https://stripe.com/img/documentation/checkout/marketplace.png">
+        </script>
+        <script>
+            document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
+        </script>
+        <p>
+            <button type="button" style="display:none;" class="placeorderforstripe btn btn-primary rounded-pill" id="stripe-button" name="stipeButton" value="stipeButton"><i class="fab fa-cc-stripe"></i> Stripe 信用卡支付</button>
+        </p>
+        <div class="container-fluid">
+            <div class="container pb3">
+                <div class="row justify-content-between">
+                    <a class="btn btn-warning fz15 ls025" href="/Activity/Index" role="button">返回上一步</a>
+                    <div id="actformsubmit" class="btn btn-warning fz15 ls025" onclick="actsurecheck()">確定結帳</div>
+                    <a href="#" role="button" id="actsure-check" style="display:none">確定結帳</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<input type="hidden" id="paymentCheckedInput" value="@Context.Session.GetString("SK_Payment")" />
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+
+<script>
+    //已選活動添加
+    $(document).ready(function () {
+        if (Cookies.get("carItem") != undefined) {
+            let items = Cookies.get("carItem");
+            items = items.split(",");
+            console.log(items);
+            for (let id of items) {
+                $.ajax({
+                    url: "/Activity/ordershoppingcart",
+                    type: 'GET',
+                    data: { "id": id },
+                    success: function (data) {
+                        var aaa = $("#ordershoppingcart").html();
+                        $("#ordershoppingcart").html(aaa + data);
+                        var a = 0;
+                        $(".allprice").each(function () {
+                            a += parseInt($(this).text());
+                        })
+                        $("#pricetotal").html(a);
+                    },
+                })
+            }
+        }
+    });
+    $("#stripe-button").click(function () {
+        if (Cookies.get("carItem") != undefined) {
+            let items = Cookies.get("carItem");
+            items = items.split(",");
+            for (let id of items) {
+                $.ajax({
+                    url: "/Activity/shoppingcartendpay",
+                    type: 'GET',
+                    data: { "id": id },
+                    success: function (data) {
+                        Cookies.remove('carItem');
+                    },
+                })
+            }
+        }
+    });
+
+</script>
+
+
+

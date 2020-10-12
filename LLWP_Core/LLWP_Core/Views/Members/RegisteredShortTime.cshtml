@@ -1,0 +1,125 @@
+﻿@model LLWP_Core.Models.TMemberdata
+@{
+    ViewData["Title"] = "榕沛社區 - 會員申請";
+    Layout = "~/Views/Shared/_Layout_Member.cshtml";
+}
+
+@using (Html.BeginForm("RegisteredShortTime", "Members", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="backColor-reg shadow">
+        <div class="container">
+            <div class=" mb-5">
+                <div class="row mb-2 longmember">
+                    <div class="">
+                        <h3 class="title formFont">註冊</h3>
+                        <h5 class="title formFont">成為榕沛會員</h5>
+                    </div>
+                    <div class="form-group w-100 d-flex">
+                        <div class="d-flex align-items-top formDivSet w-25">
+                            <div class="labelSet"><label for="inputName">姓名</label></div>
+                        </div>
+                        @Html.EditorFor(model => model.FMeName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FMeName, "", new { @class = "text-danger" })
+                    </div>
+                    <hr>
+                    <div class="form-group d-flex w-100">
+                        <div class="formDivSet w-25">
+                            <div class="labelSet"><label for="inputID">身分證/居留證</label></div>
+                        </div>
+                        @Html.EditorFor(model => model.FMePersonId, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FMePersonId, "", new { @class = "text-danger" })
+                    </div>
+                    <hr>
+                    <div class="form-group d-flex w-100">
+                        <div class="formDivSet w-25">
+                            <div class="labelSet"><label for="gender"></label>性別</div>
+                        </div>
+                        <div class=" d-flex ">
+                            @Html.RadioButtonFor(model => model.FMeGender, "男")
+                            先生
+                            @Html.RadioButtonFor(model => model.FMeGender, "女")
+                            女士
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group w-100 d-flex">
+                        <div class="d-flex align-items-top lavelDivSet w-25">
+                            <div class="labelSet"><label for="inputEmail">電子信箱</label></div>
+                        </div>
+                        @Html.EditorFor(model => model.FMeMail, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FMeMail, "", new { @class = "text-danger" })
+                    </div>
+                    <hr>
+                    <div class="form-group w-100 d-flex">
+                        <div class="d-flex align-items-top lavelDivSet w-25">
+                            <div class="labelSet">
+                                <label for="">密碼</label>
+                            </div>
+                        </div>
+                        @Html.PasswordFor(model => model.FMePass, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FMePass, "", new { @class = "text-danger" })
+                    </div>
+                    <hr>
+                    <div class="form-group d-flex w-100">
+                        <div class="formDivSet w-25">
+                            <div class="labelSet"><label for="inputPhone">手機</label></div>
+                        </div>
+                        @Html.EditorFor(model => model.FMePhone, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FMePhone, "", new { @class = "text-danger" })
+                    </div>
+                    <hr>
+                    <hr class="mb-5">
+                    <div class="form-group w-100 d-flex">
+                        <div class="labelSet w-25">
+                            <label for="inputBirthday">出生日期</label>
+                        </div>
+                        <div class="w-75 d-flex " style="justify-content: space-between;">
+                            @Html.EditorFor(model => model.FMeBirth, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.FMeBirth, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group w-100 d-flex">
+                        <div class="labelSet w-25">
+                            <label for="">年齡</label>
+                        </div>
+                        <div class="w-75 d-flex " style="justify-content: space-between;">
+                            @Html.EditorFor(model => model.FMeAge, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.FMeAge, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group d-flex w-100">
+                        <div class="formDivSet w-25">
+                            <div class="labelSet">
+                                <label class="" for="customFile">個人照片</label>
+                            </div>
+                        </div>
+                        <input type="file" class=" w-75" name="fPhotodata">
+                    </div>
+                    <hr>
+                    <div class="form-group d-flex w-100">
+                        <div class="formDivSet w-25">
+                            <div class="labelSet"><label for="emperson">緊急聯絡人</label></div>
+                        </div>
+                        @Html.EditorFor(model => model.FMeEmerName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FMeEmerName, "", new { @class = "text-danger" })
+                    </div>
+                    <hr>
+                    <div class="form-group d-flex w-100">
+                        <div class="formDivSet w-25">
+                            <div class="labelSet"><label for="empphone">緊急連絡人電話</label></div>
+                        </div>
+                        @Html.EditorFor(model => model.FMeEmerPhone, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FMeEmerPhone, "", new { @class = "text-danger" })
+                    </div>
+                    <hr>
+                    <div class="mt10 jcc" style="width:100%; display:flex;">
+                        <a href="/Booking/BookingCalendar" style="display:block; width:250px;" class="btn btn-warning btn-lg" role="button" aria-pressed="true">完成，前往訂房</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+        </div>
+    </div>
+}

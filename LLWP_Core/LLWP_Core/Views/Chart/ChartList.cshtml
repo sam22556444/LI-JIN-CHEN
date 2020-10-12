@@ -1,0 +1,174 @@
+﻿
+@{
+    ViewData["Title"] = "ChartList";
+    Layout = "~/Views/Shared/_Layout_Chart.cshtml";
+}
+
+<div class="d-flex">
+    <div>
+        <nav class="nav flex-column booking-nav" style="width:170px">
+            <a class="nav-link book-nav-link" href="/chart/ChartList" style="color:#d35a5d">報表</a>
+            <a class="nav-link book-nav-link" href="/calendar/CalendarList">訂房狀態月曆</a>
+            <a class="nav-link book-nav-link" href="/roomOrder/List">試住訂單管理</a>
+            <a class="nav-link book-nav-link" href="/tryPet/List">寵物試養計畫</a>
+            <a class="nav-link book-nav-link" href="/activityBack/index">活動管理</a>
+            <a class="nav-link book-nav-link" href="/tryPet/Index">登出</a>
+        </nav>
+    </div>
+    <div class="container-fluid">
+        <h2 class="list-title">報表</h2>
+        <iframe width="1400" height="590" src="https://app.powerbi.com/reportEmbed?reportId=6fc7db0a-0ffa-428e-86b6-90038fc2cd2d&autoAuth=true&ctid=abb9c069-3786-4f39-b9a2-d59a7370b03f&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXNvdXRoLWVhc3QtYXNpYS1iLXByaW1hcnktcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D" frameborder="0" allowFullScreen="true"></iframe>
+
+        <div class="d-flex">
+            <div id="pieChartContainer" style="width:35%">
+            </div>
+            <div id="lineChartContainer" style="margin-bottom:200px">
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script>
+    $(document).ready(function () {
+        $.getJSON("/chart/GetPieChartData", function (data) {
+
+            Highcharts.chart('pieChartContainer', {
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'pie',
+                    width: 600,
+                    height:400
+                },
+                credits: {
+                    enabled: false
+                },
+                title: {
+                    text: '2020年每月試住訂單數量比例',
+                    style: {
+                        fontSize: '20px'
+                    }
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            format: '{point.name}: {point.percentage:.0f} %',
+                            style: {
+                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black',
+                                fontSize: '18px',
+                                fontWeight: 'normal'
+                            }
+                        }
+                    }
+                },
+                series: [{
+                    name: '月份',
+                    colorByPoint: true,
+                    data: [{
+                        name: '六月',
+                        y: data.month6
+                    }, {
+                        name: '七月',
+                        y: data.month7
+                    }, {
+                        name: '八月',
+                        y: data.month8
+                    }, {
+                        name: '九月',
+                        y: data.month9
+                    }]
+                }]
+            });
+        });
+        $.getJSON("/chart/GetLineChartData", function (data) {
+            var Months = []
+            var TotalMoney = []
+            for (var i = 0; i < data.length; i++) {
+                Months.push(data[i].fOrDateMonth);
+                TotalMoney.push(data[i].sumTotalPrice);
+                //console.log("data[i].fOrDateMonth: " + data[i].fOrDateMonth);
+                //console.log("data[i].sumTotalPrice: ") + data[i].sumTotalPrice;
+            }
+
+            Highcharts.chart("lineChartContainer", {
+                chart: {
+                    type: 'line',
+                    width: 600,
+                    height: 400
+                },
+                credits: {
+                    enabled: false
+                },
+                title: {
+                    text: "每月試住訂單總金額統計",
+                    style: {
+                        fontSize: '20px'
+                    }
+                },
+                subtitle: {
+                    text: "單位:新台幣"
+                },
+                xAxis: {
+                    categories: Months,
+                    labels: {
+                        style: {
+                            fontSize: '14px'
+                        }
+                    }
+
+                },
+                yAxis: {
+                    title: {
+                        text: "訂單總金額",
+                        style: {
+                            fontSize: '18px'
+                        }
+                    },
+                    labels: {
+                        style: {
+                            fontSize: '14px'
+                        }
+                    }
+                },
+                plotOptions: {
+                    line: {
+                        dataLabels: {
+                            enabled: true,
+                            style: {
+                                fontSize: '16px',
+                                fontWeight: 'normal'
+                            }
+                        },
+                        enableMouseTracking: false,
+                        
+                    }
+                },
+                //處理數據上在折線圖顯示部分
+                //tooltip: {
+                //    //一次看多點數據
+                //    //shared: true,
+                //    //當滑鼠移動至月份區塊時 整塊區塊會產生底色
+                //    crosshairs: false,
+                //    useHTML: true,
+                //    borderRadius: 10,
+                //    borderWidth: 3,
+                //},
+                series: [{
+                    name: "月份",
+                    data: TotalMoney,
+                }]
+            });
+        });
+    });
+
+
+</script>
+
+
