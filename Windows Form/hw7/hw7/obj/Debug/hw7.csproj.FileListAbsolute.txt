@@ -1,0 +1,10 @@
+C:\Users\usar\Desktop\my hw\hw7\hw7\bin\Debug\hw7.exe.config
+C:\Users\usar\Desktop\my hw\hw7\hw7\bin\Debug\hw7.exe
+C:\Users\usar\Desktop\my hw\hw7\hw7\bin\Debug\hw7.pdb
+C:\Users\usar\Desktop\my hw\hw7\hw7\obj\Debug\hw7.csprojAssemblyReference.cache
+C:\Users\usar\Desktop\my hw\hw7\hw7\obj\Debug\hw7.Form1.resources
+C:\Users\usar\Desktop\my hw\hw7\hw7\obj\Debug\hw7.Properties.Resources.resources
+C:\Users\usar\Desktop\my hw\hw7\hw7\obj\Debug\hw7.csproj.GenerateResource.cache
+C:\Users\usar\Desktop\my hw\hw7\hw7\obj\Debug\hw7.csproj.CoreCompileInputs.cache
+C:\Users\usar\Desktop\my hw\hw7\hw7\obj\Debug\hw7.exe
+C:\Users\usar\Desktop\my hw\hw7\hw7\obj\Debug\hw7.pdb
