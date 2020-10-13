@@ -1,0 +1,10 @@
+C:\Users\usar\Desktop\my hw\hw8\hw8\bin\Debug\hw8.exe.config
+C:\Users\usar\Desktop\my hw\hw8\hw8\bin\Debug\hw8.exe
+C:\Users\usar\Desktop\my hw\hw8\hw8\bin\Debug\hw8.pdb
+C:\Users\usar\Desktop\my hw\hw8\hw8\obj\Debug\hw8.csprojAssemblyReference.cache
+C:\Users\usar\Desktop\my hw\hw8\hw8\obj\Debug\hw8.Form1.resources
+C:\Users\usar\Desktop\my hw\hw8\hw8\obj\Debug\hw8.Properties.Resources.resources
+C:\Users\usar\Desktop\my hw\hw8\hw8\obj\Debug\hw8.csproj.GenerateResource.cache
+C:\Users\usar\Desktop\my hw\hw8\hw8\obj\Debug\hw8.csproj.CoreCompileInputs.cache
+C:\Users\usar\Desktop\my hw\hw8\hw8\obj\Debug\hw8.exe
+C:\Users\usar\Desktop\my hw\hw8\hw8\obj\Debug\hw8.pdb

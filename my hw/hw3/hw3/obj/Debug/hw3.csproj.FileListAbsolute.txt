@@ -1,0 +1,30 @@
+C:\Users\User\source\repos\hw3\hw3\obj\Debug\hw3.csprojAssemblyReference.cache
+C:\Users\User\source\repos\hw3\hw3\obj\Debug\hw3.Form1.resources
+C:\Users\User\source\repos\hw3\hw3\obj\Debug\hw3.Properties.Resources.resources
+C:\Users\User\source\repos\hw3\hw3\obj\Debug\hw3.csproj.GenerateResource.cache
+C:\Users\User\source\repos\hw3\hw3\obj\Debug\hw3.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\hw3\hw3\bin\Debug\hw3.exe.config
+C:\Users\User\source\repos\hw3\hw3\bin\Debug\hw3.exe
+C:\Users\User\source\repos\hw3\hw3\bin\Debug\hw3.pdb
+C:\Users\User\source\repos\hw3\hw3\obj\Debug\hw3.exe
+C:\Users\User\source\repos\hw3\hw3\obj\Debug\hw3.pdb
+C:\Users\usar\Desktop\hw3\hw3\bin\Debug\hw3.exe.config
+C:\Users\usar\Desktop\hw3\hw3\bin\Debug\hw3.exe
+C:\Users\usar\Desktop\hw3\hw3\bin\Debug\hw3.pdb
+C:\Users\usar\Desktop\hw3\hw3\obj\Debug\hw3.csprojAssemblyReference.cache
+C:\Users\usar\Desktop\hw3\hw3\obj\Debug\hw3.Form1.resources
+C:\Users\usar\Desktop\hw3\hw3\obj\Debug\hw3.Properties.Resources.resources
+C:\Users\usar\Desktop\hw3\hw3\obj\Debug\hw3.csproj.GenerateResource.cache
+C:\Users\usar\Desktop\hw3\hw3\obj\Debug\hw3.csproj.CoreCompileInputs.cache
+C:\Users\usar\Desktop\hw3\hw3\obj\Debug\hw3.exe
+C:\Users\usar\Desktop\hw3\hw3\obj\Debug\hw3.pdb
+C:\Users\usar\Desktop\my hw\hw3\hw3\bin\Debug\hw3.exe.config
+C:\Users\usar\Desktop\my hw\hw3\hw3\bin\Debug\hw3.exe
+C:\Users\usar\Desktop\my hw\hw3\hw3\bin\Debug\hw3.pdb
+C:\Users\usar\Desktop\my hw\hw3\hw3\obj\Debug\hw3.csprojAssemblyReference.cache
+C:\Users\usar\Desktop\my hw\hw3\hw3\obj\Debug\hw3.Form1.resources
+C:\Users\usar\Desktop\my hw\hw3\hw3\obj\Debug\hw3.Properties.Resources.resources
+C:\Users\usar\Desktop\my hw\hw3\hw3\obj\Debug\hw3.csproj.GenerateResource.cache
+C:\Users\usar\Desktop\my hw\hw3\hw3\obj\Debug\hw3.csproj.CoreCompileInputs.cache
+C:\Users\usar\Desktop\my hw\hw3\hw3\obj\Debug\hw3.exe
+C:\Users\usar\Desktop\my hw\hw3\hw3\obj\Debug\hw3.pdb
